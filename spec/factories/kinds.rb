@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :kind do
-    title "MyString"
+    title { Faker::Hacker.noun }
   end
 end
