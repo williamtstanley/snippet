@@ -19,7 +19,11 @@ class SnippetsController < ApplicationController
   end
 
   def index
-    @snippets = Snippet.order(created_at: :desc)
+    if params[:mine]
+      @snippets = Snippet.where(user: current_user).order(created_at: :desc)
+    else
+      @snippets = Snippet.order(created_at: :desc)
+    end
   end
 
   def edit
