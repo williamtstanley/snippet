@@ -12,8 +12,17 @@ class UsersController < ApplicationController
       render :new
     end
   end
-
-
+  def edit
+    @user = current_user
+  end
+  def update
+    @user = User.find session[:user_id]
+    if @user.update(user_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
 
 
   private
