@@ -1,7 +1,7 @@
 <h1>Forgot Your Password?</h1>
 <h2>Make a new one!</h2>
 
-<%= form_tag new_password_reset_path do %>
+<%= form_tag password_resets_path do %>
   <%= email_field_tag :email %>
   <%= submit_tag %>
 <% end %>

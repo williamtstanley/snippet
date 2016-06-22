@@ -40,15 +40,10 @@ ActiveRecord::Schema.define(version: 20160622160755) do
     t.string   "last_name"
     t.string   "email"
     t.string   "password_digest"
-<<<<<<< HEAD
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.string   "reset_token"
-=======
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
+    t.string   "reset_token"
     t.boolean  "is_admin",        default: false
->>>>>>> a891ac1871e31fd2603d282eba8cbdd73f194210
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
