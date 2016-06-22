@@ -13,7 +13,7 @@
     <% if user_signed_in? %>
     <%= link_to "Hello, #{current_user.first_name.capitalize}", edit_user_path(current_user) %>
     |
-    <%= link_to "My snippets", root_path(mine: true) %>
+    <%= link_to "My Snippets", root_path(mine: true) %>
     |
     <%= link_to "Create Snippet", new_snippet_path %>
     |
