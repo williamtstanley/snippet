@@ -1,6 +1,6 @@
 <h1><%= @snippet.title %></h1>
 <h2>Body</h2>
 <code><%= markdown(@snippet.work) %></code>
-Kind: <%= @snippet.kind %>
+Kind: <%= @snippet.kind.title %>
 Private: <%= @snippet.private %>
 <%= link_to "Edit", edit_snippet_path(@snippet) %>
