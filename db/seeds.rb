@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 if Kind.count == 0
-  ['HTML', 'CSS', 'JavaScript/JSON', 'Ruby', 'SQL'].each do |k|
+  ['HTML', 'CSS', 'JavaScript', 'Ruby', 'SQL'].each do |k|
     Kind.create title: k
   end
 end
