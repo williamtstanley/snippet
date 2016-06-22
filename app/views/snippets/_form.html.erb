@@ -1,0 +1,13 @@
+<%= form_for @snippet do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :work %>
+  <%= f.text_area :work %>
+
+  <%= f.label :private %>
+  <%= f.check_box :private %>
+
+  <%= f.collection_select :kind_id, Kind.all, :id, :title, {include_blank: "Select a Kind"} %>
+  <%= f.submit %>
+<% end %>

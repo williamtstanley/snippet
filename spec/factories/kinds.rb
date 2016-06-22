@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :kind do
-    title { Faker::Hacker.noun }
+    sequence(:title) { |n| "#{Faker::Hacker.noun}-#{n}" }
   end
 end

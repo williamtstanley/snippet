@@ -9,8 +9,8 @@ RSpec.describe Snippet, type: :model do
     end
 
     it "should have a unique title" do
-      FactoryGirl.create(:snippet, {title: 'not_original'})
-      s = FactoryGirl.build(:snippet, {title: 'not_original'})
+      FactoryGirl.create(:snippet, title: 'not_original')
+      s = FactoryGirl.build(:snippet, title: 'not_original')
       s.valid?
       expect(s.errors).to have_key(:title)
     end
