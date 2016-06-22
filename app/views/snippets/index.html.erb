@@ -1,6 +1,8 @@
 <h1>Snippets</h1>
 <% @snippets.each do |snippet| %>
-  <%= link_to snippet.title, snippet_path(snippet) %>
-  <%= markdown(snippet.work.truncate(100)) %>
-  <hr>
+  <% if (can? :manage, snippet) || (!snippet.private?) %>
+      <%= link_to snippet.title, snippet_path(snippet) %>
+      <%= markdown(snippet.work.truncate(100)) %>
+      <hr>
+  <% end %>
 <% end %>
