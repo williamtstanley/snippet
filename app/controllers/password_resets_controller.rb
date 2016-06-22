@@ -16,4 +16,18 @@ class PasswordResetsController < ApplicationController
     end
   end
 
+  def edit
+    @token = params[:token]
+  end
+
+  def update
+    user = User.find params[:id]
+    if user && params[:new_password] == params[:new_password_confirmation]
+      user.update password: params[:new_password]
+      redirect_to new_session_path, notice: "Password updated"
+    else
+      flash[:alert] = "An error has occured" 
+      render :edit
+    end
+  end
 end
