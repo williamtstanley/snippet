@@ -6,6 +6,7 @@ class SnippetsController < ApplicationController
 
   def create
     snippet = Snippet.new snippet_params
+    # byebug
     if snippet.save
       redirect_to snippet_path(snippet)
     else
@@ -39,7 +40,7 @@ class SnippetsController < ApplicationController
   private
 
     def snippet_params
-      params.require(:snippet).permit(:title, :work, :private, :kind)
+      params.require(:snippet).permit(:title, :work, :private, :kind_id)
     end
 
     def find_snippet
