@@ -21,15 +21,15 @@ RSpec.describe UsersController, type: :controller do
         expect(session[:user_id]).to eq(User.last.id)
       end
   end
-  context "with invalid request" do
-      def invalid_request
-        post :create, user: attributes_for(:user, {first_name: nil})
-      end
-      it {expect {invalid_request}.to change {User.count}.by(0)}
-      it "renders the new template" do
-        invalid_request
-        expect(response).to render_template(:new)
+    context "with invalid request" do
+        def invalid_request
+          post :create, user: attributes_for(:user, {first_name: nil})
+        end
+        it {expect {invalid_request}.to change {User.count}.by(0)}
+        it "renders the new template" do
+          invalid_request
+          expect(response).to render_template(:new)
+        end
       end
     end
-end
 end
