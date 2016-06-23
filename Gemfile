@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+gem 'gravtastic'
 gem 'redcarpet'
 gem 'rouge'
 gem 'cancancan', '~> 1.10'
@@ -54,4 +55,3 @@ group :development do
   gem 'spring'
 
 end
-

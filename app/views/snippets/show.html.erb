@@ -1,7 +1,7 @@
 <h1><%= @snippet.title %></h1>
 <code><%= markdown("~~~#{@snippet.kind.title.downcase}\n#{@snippet.work}\n~~~") %></code>
 <p class="author-link">
-  by: <%= @snippet.user.full_name %>
+  by: <%= link_to @snippet.user.full_name, user_path(@snippet.user) %>
 </p>
 Kind: <%= @snippet.kind.title %>
 Private: <%= @snippet.private %>

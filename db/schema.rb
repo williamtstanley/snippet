@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160622232132) do
+ActiveRecord::Schema.define(version: 20160623011838) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,18 @@ ActiveRecord::Schema.define(version: 20160622232132) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "profiles", force: :cascade do |t|
+    t.text     "about"
+    t.string   "twitter"
+    t.string   "github"
+    t.string   "linkedin"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
 
   create_table "snippets", force: :cascade do |t|
     t.string   "title"
@@ -60,6 +72,7 @@ ActiveRecord::Schema.define(version: 20160622232132) do
 
   add_foreign_key "favourites", "snippets"
   add_foreign_key "favourites", "users"
+  add_foreign_key "profiles", "users"
   add_foreign_key "snippets", "kinds"
   add_foreign_key "snippets", "users"
 end
