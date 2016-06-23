@@ -1,8 +1,12 @@
+<div class="profile-container">
+
 <h1><%= @user.full_name %></h1>
-<%= image_tag @user.gravatar_url %>
+<div class="">
+  <%= image_tag @user.gravatar_url, class: "profile-image" %>  
+</div>
 <%= link_to "Gravatar", "https://en.gravatar.com/", target: :blank %>
-<h3>About</h3> <br>
-<%= @user.profile.about %>
+<h3>About</h3>
+<p><%= @user.profile.about %></p>
 
 <h3>Social Media</h3>
 <%= @user.profile.twitter %>
@@ -12,3 +16,5 @@
 <% if can? :manage, Profile %>
   <%= link_to "Edit", edit_user_profile_path(@user, @user.profile) %>
 <% end %>
+
+</div>

@@ -75,45 +75,72 @@ h1, h2, h3, h4, h5, h6 {
     background-color: #a8a7aa;
     border: 2px solid #686968;
     border-radius: 10px;
-}
-.snippet-container .form-drop-down {
-    margin-left: 15px;
-    margin-bottom: 15px;
-}
-.snippet-container .text-input {
-    width: 96%;
-    margin: 0 auto;
-    margin-left: 15px;
-    font-size: 22px;
-}
-.snippet-container .form-button {
-    background-color: #a7410f;
-    width: 25%;
-    font-size: 22px;
-    color: #404142;
-    color: white;
-    padding: 10px 18px;
-    margin: 15px auto;
-    font-family: 'open sans', sans-serif;
-    font-size: 16px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    border: solid 1px #eee;
-    -webkit-transition: all 0.25s ease-in-out;
-    -moz-transition: all 0.25s ease-in-out;
-    -o-transition: all 0.25s ease-in-out;
-    -ms-transition: all 0.25s ease-in-out;
-    transition: all 0.25s ease-in-out;
-    cursor: pointer;
-}
-.snippet-container h1 {
-  text-align: center;
-  background-color: #a7410f;
-  color: white;
-  margin: 0px -16px;
-  margin-top: 0px;
-  margin-bottom: 15px;
-  border-radius: 8px 8px 0 0;
-  padding: 2.5%;
+    .form-link {
+      text-align: center;
+    }
+    .form-drop-down {
+        margin-left: 15px;
+        margin-bottom: 15px;
+    }
+    textarea {
+        width: 96%;
+        margin: 0 auto;
+        margin-left: 15px;
+        font-size: 22px;
+        height: 300px;
+    }
+    .form-button {
+        background-color: $dark-grey;
+        width: 25%;
+        font-size: 22px;
+        color: $light-grey;
+        padding: 10px 18px;
+        margin: 15px auto;
+        font-family: 'open sans', sans-serif;
+        font-size: 16px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border: solid 1px #eee;
+        -webkit-transition: all 0.25s ease-in-out;
+        -moz-transition: all 0.25s ease-in-out;
+        -o-transition: all 0.25s ease-in-out;
+        -ms-transition: all 0.25s ease-in-out;
+        transition: all 0.25s ease-in-out;
+        cursor: pointer;
+    }
+    h1 {
+      text-align: center;
+      background-color: $dark-grey;
+      color: $light-grey;
+      margin: 0px -16px;
+      margin-top: 0px;
+      margin-bottom: 15px;
+      border-radius: 8px 8px 0 0;
+      padding: 2.5%;
 
+    }
+}
+
+.show-container {
+  h1{
+    text-align: center;
+  }
+  .code-container {
+    padding: 15px;
+    border: 2px solid $dark-grey;
+    background-color: #F8F8F8;
+  }
+  .author-link {
+    font-style: italic;
+    color: $dark-grey;
+  }
+  .bright-star {
+    font-size: 24px;
+    color: $banana;
+    text-shadow: -1px 0 $dark-grey, 0 1px $dark-grey, 1px 0 $dark-grey, 0 -1px $dark-grey;
+  }
+  .grey-star {
+    font-size: 24px;
+    color: $dark-grey;
+  }
 }

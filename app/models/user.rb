@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   include Gravtastic
-  gravtastic
-  
+  gravtastic size: 300
+
   has_secure_password
   has_many :snippets
   has_many :favourites, dependent: :destroy

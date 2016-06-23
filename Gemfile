@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 gem 'gravtastic'
+gem 'font-awesome-rails'
 gem 'redcarpet'
 gem 'rouge'
 gem 'cancancan', '~> 1.10'
