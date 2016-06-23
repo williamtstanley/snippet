@@ -5,7 +5,10 @@
     <%= form_for @snippet do |f| %>
       <div class="form-drop-down">
 
-        <%= f.collection_select :kind_id, Kind.all, :id, :title, {include_blank: "Select a Kind"} %>
+        <%= f.collection_select :kind_id, Kind.all, :id, :title, {selected: Kind.find_by_id(19).id} %>
+
+
+
       </div>
       <div class="form-title">
         <%= f.label :title %>
