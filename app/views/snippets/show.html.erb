@@ -1,6 +1,8 @@
 <h1><%= @snippet.title %></h1>
-<h2>Body</h2>
 <code><%= markdown("~~~#{@snippet.kind.title.downcase}\n#{@snippet.work}\n~~~") %></code>
+<p class="author-link">
+  by: <%= @snippet.user.full_name %>
+</p>
 Kind: <%= @snippet.kind.title %>
 Private: <%= @snippet.private %>
 <%= link_to "Edit", edit_snippet_path(@snippet) %>

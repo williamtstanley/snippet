@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :snippets
-  root "snippets#index"
+  root "main#index"
   resources :users, only: [:new, :create, :edit, :update]
   resources :password_resets, only: [:new, :create, :edit, :update]
   #USER CONTROL

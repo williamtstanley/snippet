@@ -17,9 +17,15 @@ class SnippetsController < ApplicationController
 
   def show
   end
+  # @tickets = SupportTicket.order(created_at: :desc)
 
   def index
-    @snippets = Snippet.order(created_at: :desc)
+    if params[:lan]
+      @lan = params[:lan]
+      @snippets = Snippet.order(created_at: :desc).language(@lan).page(params[:page]).per(10)
+    else
+      @snippets = Snippet.order(created_at: :desc).page(params[:page]).per(10)
+    end
   end
 
   def edit

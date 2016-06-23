@@ -1,0 +1,6 @@
+<h1>Welcome to Code Snippets!</h1>
+<ul>
+  <% @kinds.each do |kind| %>
+    <li><%= link_to "#{kind.title} (#{kind.snippets.count} Snippets)", snippets_path(lan: kind.id) %></li>
+  <% end %>
+</ul>

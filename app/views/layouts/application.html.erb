@@ -8,7 +8,9 @@
 </head>
 <body>
   <nav>
-    <%= link_to "Snippets", root_path %>
+    <%= link_to "Main Page", root_path %>
+    |
+    <%= link_to "Snippets", snippets_path %>
     |
     <% if user_signed_in? %>
     <%= link_to "Hello, #{current_user.first_name.capitalize}", edit_user_path(current_user) %>
