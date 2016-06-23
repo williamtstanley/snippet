@@ -3,7 +3,11 @@
 <% @snippets.each do |snippet| %>
   <% if (can? :manage, snippet) || (!snippet.private?) %>
       <%= link_to snippet.title, snippet_path(snippet) %>
-      <%= markdown(("~~~#{snippet.kind.title.downcase}\n#{snippet.work}\n~~~").truncate(200)) %>
+      <% if snippet.kind.title.downcase == "markdown" %>
+        <code><%= markdown("#{snippet.work}") %></code>
+      <% else %>
+        <code><%= markdown(("~~~#{snippet.kind.title.downcase}\n#{snippet.work}\n~~~").truncate(350)) %></code>
+      <% end %>
       <hr>
   <% end %>
 <% end %>
