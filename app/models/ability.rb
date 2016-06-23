@@ -9,16 +9,9 @@ class Ability
     else
         can :read, :all
     end
-    can :manage, [Snippet] do |p|
-        p.user == user
-    end
 
-    can :manage, Favourite do |f|
-      f.user == user
-    end
-
-    can :manage, Profile do |p|
-      p.user == user
+    can :manage, [Snippet, Favourite, Profile, Comment] do |u|
+        u.user == user
     end
   end
 end

@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
 
   has_secure_password
   has_many :snippets
+  has_many :comments, dependent: :nullify
   has_many :favourites, dependent: :destroy
   has_many :favourite_snippets, through: :favourites, source: :snippet
   has_one :profile, dependent: :destroy

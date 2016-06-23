@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   resources :snippets do
     resources :favourites, only: [:create, :destroy]
+    resources :comments, only: [:create, :destroy]
   end
   resources :favourites, only: [:index]
 

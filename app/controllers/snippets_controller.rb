@@ -16,6 +16,8 @@ class SnippetsController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
+    @comments = Comment.order(created_at: :desc)
   end
   # @tickets = SupportTicket.order(created_at: :desc)
 
