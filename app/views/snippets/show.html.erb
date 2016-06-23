@@ -5,7 +5,10 @@
 </p>
 Kind: <%= @snippet.kind.title %>
 Private: <%= @snippet.private %>
-<%= link_to "Edit", edit_snippet_path(@snippet) %>
+<% if can? :manage, Snippet %>
+  <%= link_to "Edit", edit_snippet_path(@snippet) %>
+  <%= link_to "Delete", snippet_path(@snippet), method: :delete, data:{confirm: "Are you sure?"} %>
+<% end %>
 <% if @snippet.favourited_by?(current_user) %>
   <%= link_to "Unfavourite", snippet_favourite_path(@snippet, @snippet.favourite_for(current_user)), method: :delete %>
 <% else %>

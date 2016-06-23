@@ -1,21 +1,30 @@
-<nav>
-  <%= link_to "Main Page", root_path %>
-  |
-  <%= link_to "Snippets", snippets_path %>
-  |
-  <% if user_signed_in? %>
-  <%= link_to "Hello, #{current_user.first_name.capitalize}", edit_user_path(current_user) %>
-  |
-  <%= link_to "My Snippets", snippets_path(mine: true) %>
-  |
-  <%= link_to "My Favourites", favourites_path %>
-  |
-  <%= link_to "Create Snippet", new_snippet_path %>
-  |
-  <%= link_to "Sign Out", sessions_path, method: :delete %>
-  <% else %>
-  <%= link_to "Sign Up", new_user_path %>
-  |
-  <%= link_to "Sign In", new_session_path %>
-  <% end %>
+<nav class="nav-bar">
+  <div class="left-nav">
+    <%= link_to "Main Page", root_path %>
+    |
+    <%= link_to "Snippets", snippets_path %>
+    |
+    <% if user_signed_in? %>
+      <%= link_to "My Snippets", snippets_path(mine: true) %>
+      |
+      <%= link_to "My Favourites", favourites_path %>
+      |
+      <%= link_to "Create Snippet", new_snippet_path %>
+    <% end %>
+  </div>
+
+
+
+
+  <div class="right-nav">
+    <% if user_signed_in? %>
+    <%= link_to "Hello, #{current_user.first_name.capitalize}", edit_user_path(current_user) %>
+    |
+    <%= link_to "Sign Out", sessions_path, method: :delete %>
+    <% else %>
+    <%= link_to "Sign Up", new_user_path %>
+    |
+    <%= link_to "Sign In", new_session_path %>
+    <% end %>
+  </div>
 </nav>

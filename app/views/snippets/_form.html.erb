@@ -1,14 +1,30 @@
-<%= form_for @snippet do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
+<div class="flex-container">
 
-  <%= f.label :work %>
-  <%= link_to "Need Markdown?", "http://daringfireball.net/projects/markdown/basics", {target: "blank"} %>
-  <%= f.text_area :work %>
+  <div class="snippet-container">
+    <h1>New Snippet</h1>
+    <%= form_for @snippet do |f| %>
+      <div class="form-drop-down">
 
-  <%= f.label :private %>
-  <%= f.check_box :private %>
+        <%= f.collection_select :kind_id, Kind.all, :id, :title, {include_blank: "Select a Kind"} %>
+      </div>
+      <div class="form-title">
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+      </div>
+      <div class="form-work">
+        <%= f.label :work %>
+        <div class="form-link"><%= link_to "Need Markdown?", "http://daringfireball.net/projects/markdown/basics", {target: "blank"} %></div>
+        <%= f.text_area :work %>
+      </div>
+      <div class="form-private">
+        <%= f.label :private %>
+        <%= f.check_box :private %>
+      </div>
+      <div class="">
+        <%= f.submit :class => 'form-button' %> %>
+      </div>
+    <% end %>
 
-  <%= f.collection_select :kind_id, Kind.all, :id, :title, {include_blank: "Select a Kind"} %>
-  <%= f.submit %>
-<% end %>
+  </div>
+
+</div>
