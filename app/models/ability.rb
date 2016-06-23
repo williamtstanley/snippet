@@ -16,5 +16,9 @@ class Ability
     can :manage, Favourite do |f|
       f.user == user
     end
+
+    can :manage, Profile do |p|
+      p.user == user
+    end
   end
 end

@@ -1,3 +1,4 @@
+
 <nav class="nav-bar">
   <div class="left-nav">
     <%= link_to "Main Page", root_path %>
@@ -18,7 +19,7 @@
 
   <div class="right-nav">
     <% if user_signed_in? %>
-    <%= link_to "Hello, #{current_user.first_name.capitalize}", edit_user_path(current_user) %>
+    <%= link_to "Hello, #{current_user.first_name.capitalize}", user_path(current_user) %>
     |
     <%= link_to "Sign Out", sessions_path, method: :delete %>
     <% else %>
@@ -27,4 +28,5 @@
     <%= link_to "Sign In", new_session_path %>
     <% end %>
   </div>
+
 </nav>
