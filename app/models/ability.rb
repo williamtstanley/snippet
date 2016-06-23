@@ -13,5 +13,8 @@ class Ability
         p.user == user
     end
 
+    can :manage, Favourite do |f|
+      f.user == user
+    end
   end
 end

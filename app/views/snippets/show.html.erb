@@ -4,3 +4,8 @@
 Kind: <%= @snippet.kind.title %>
 Private: <%= @snippet.private %>
 <%= link_to "Edit", edit_snippet_path(@snippet) %>
+<% if @snippet.favourited_by?(current_user) %>
+  <%= link_to "Unfavourite", snippet_favourite_path(@snippet, @snippet.favourite_for(current_user)), method: :delete %>
+<% else %>
+  <%= link_to "Favourite", snippet_favourites_path(@snippet), method: :post %>
+<% end %>

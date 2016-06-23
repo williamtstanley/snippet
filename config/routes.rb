@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :snippets
+  resources :snippets do
+    resources :favourites, only: [:create, :destroy]
+  end
+
   root "snippets#index"
   resources :users, only: [:new, :create, :edit, :update]
   resources :password_resets, only: [:new, :create, :edit, :update]

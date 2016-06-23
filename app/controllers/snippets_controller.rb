@@ -6,8 +6,8 @@ class SnippetsController < ApplicationController
 
   def create
     snippet = Snippet.new snippet_params
-    @user = current_user
-    snippet.user = @user
+    user = current_user
+    snippet.user = user
     if snippet.save
       redirect_to snippet_path(snippet)
     else
