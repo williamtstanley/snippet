@@ -1,0 +1,6 @@
+<h1>You Favourites</h1>
+
+<% @snippets.each do |snippet| %>
+  <%= link_to snippet.title, snippet_path(snippet) %>
+  <hr>
+<% end %>

@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160622160755) do
+ActiveRecord::Schema.define(version: 20160622232132) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "favourites", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "snippet_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "favourites", ["snippet_id"], name: "index_favourites_on_snippet_id", using: :btree
+  add_index "favourites", ["user_id"], name: "index_favourites_on_user_id", using: :btree
 
   create_table "kinds", force: :cascade do |t|
     t.string   "title"
@@ -42,12 +52,14 @@ ActiveRecord::Schema.define(version: 20160622160755) do
     t.string   "password_digest"
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
-    t.boolean  "is_admin",        default: false
     t.string   "reset_token"
+    t.boolean  "is_admin",        default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
+  add_foreign_key "favourites", "snippets"
+  add_foreign_key "favourites", "users"
   add_foreign_key "snippets", "kinds"
   add_foreign_key "snippets", "users"
 end
