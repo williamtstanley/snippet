@@ -9,9 +9,15 @@
 <p><%= @user.profile.about %></p>
 
 <h3>Social Media</h3>
-<%= @user.profile.twitter %>
-<%= @user.profile.github %>
-<%= @user.profile.linkedin %>
+Twitter: <%= link_to @user.profile.twitter,
+            "https://twitter.com/#{@user.profile.twitter}",
+             target: :blank %><br>
+
+Github: <%= link_to @user.profile.github,
+           "https://github.com/#{@user.profile.github}",
+            target: :blank %><br>
+
+Linkedin: <%= link_to @user.full_name, "#{@user.profile.linkedin}", target: :blank %><br>
 
 <% if can? :manage, Profile %>
   <%= link_to "Edit", edit_user_profile_path(@user, @user.profile) %>
