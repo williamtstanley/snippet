@@ -1,10 +1,21 @@
 source 'https://rubygems.org'
+# Profile Gem
 gem 'gravtastic'
+gem 'slim'
+#Styling Gems
 gem 'font-awesome-rails'
+gem 'bootstrap-sass'
+gem 'bootswatch-rails'
+gem 'bootstrap_form'
+# Markdown and sytax gems
 gem 'redcarpet'
 gem 'rouge'
+
+# Pagination and User Control
 gem 'cancancan', '~> 1.10'
 gem 'kaminari'
+
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 # Use postgresql as the database for Active Record

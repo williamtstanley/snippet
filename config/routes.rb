@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  # get "project/new" => 'session#new', :as => :sign_in
+  # get new_session_path => 'session#new', :as => :sign_in
+  # get "/sessions/new" => "session#new", :as => :sign_in
 
   resources :snippets do
     resources :favourites, only: [:create, :destroy]

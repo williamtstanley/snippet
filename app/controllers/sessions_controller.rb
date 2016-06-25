@@ -2,6 +2,14 @@ class SessionsController < ApplicationController
 
   def new
   end
+
+  # def sign_in
+  #   respond_to do |format|
+  #     format.html
+  #     format.js
+  #   end
+  # end
+
   def create
     @user = User.find_by_email params[:email]
     if @user && @user.authenticate(params[:password])

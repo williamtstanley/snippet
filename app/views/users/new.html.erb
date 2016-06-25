@@ -2,9 +2,10 @@
 
 <div class="flash-container">
 <% unless @user.errors.empty? %>
-    <div class="errors flash">
-        <%= @user.errors.full_messages.join(", ") %>
-    </div>
+  <div class="alert alert-dismissible alert-danger">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>Oh snap!</strong> <a href="#" class="alert-link"><%= @user.errors.full_messages.join(", ") %>
+  </div>
 <% end %>
 </div>
 <%= render "user" %>

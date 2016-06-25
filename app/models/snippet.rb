@@ -17,4 +17,8 @@ class Snippet < ActiveRecord::Base
   def favourite_for(user)
     favourites.find_by_user_id user
   end
+
+  def code_fence
+    "~~~#{self.kind.title.downcase}\n#{self.work}\n~~~"
+  end
 end

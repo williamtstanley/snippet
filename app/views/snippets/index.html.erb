@@ -4,9 +4,9 @@
   <% if (can? :manage, snippet) || (!snippet.private?) %>
       <%= link_to snippet.title, snippet_path(snippet) %>
       <% if snippet.kind.title.downcase == "markdown" %>
-        <code><%= markdown("#{snippet.work}") %></code>
+        <%= markdown("#{snippet.work}") %>
       <% else %>
-        <code><%= markdown(("~~~#{snippet.kind.title.downcase}\n#{snippet.work}\n~~~").truncate(350)) %></code>
+        <%= markdown(("~~~#{snippet.kind.title.downcase}\n#{snippet.work}\n~~~").truncate(350)) %>
       <% end %>
       <hr>
   <% end %>

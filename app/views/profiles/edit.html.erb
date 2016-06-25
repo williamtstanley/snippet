@@ -1,23 +1,10 @@
 <h1>Edit Your Profile!</h1>
-<%= form_for [@user, @profile], method: :patch do |f| %>
-  <div>
-    <%= f.label :about %>
-    <%= f.text_area :about %>
-  </div>
-  <div>
-  <%= f.label :twitter %>
-  @<%= f.text_field :twitter %>
-</div>
-<div>
-  <%= f.label :github %>
-  Id:<%= f.text_field :github %>
-</div>
-<div>
-  <%= f.label :linkedin %>
+<%= bootstrap_form_for [@user, @profile], method: :patch do |f| %>
+      <%= f.text_area :about %>
+     @<%= f.text_field :twitter %>
+   Id:<%= f.text_field :github %>
   URL:<%= f.text_field :linkedin %>
-</div>
-
-  <%= f.submit %>
+  <%= f.submit class: "btn btn-primary"%>
 <% end %>
 
 <%= render "/users/user" %>

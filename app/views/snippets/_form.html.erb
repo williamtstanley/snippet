@@ -1,33 +1,12 @@
-<div class="flex-container">
 
-  <div class="snippet-container">
     <h1>New Snippet</h1>
-    <%= form_for @snippet do |f| %>
-      <div class="form-drop-down">
-        
+    <%= bootstrap_form_for @snippet do |f| %>
         <%= f.collection_select :kind_id, Kind.all, :id, :title, {selected: @snippet.kind_id ||= Kind.find_by_id(19).id} %>
-
-
-
-      </div>
-      <div class="form-title">
-        <%= f.label :title %>
         <%= f.text_field :title %>
-      </div>
-      <div class="form-work">
-        <%= f.label :work %>
         <div class="form-link"><%= link_to "Need Markdown?", "http://daringfireball.net/projects/markdown/basics", {target: "blank"} %></div>
         <%= f.text_area :work %>
-      </div>
-      <div class="form-private">
-        <%= f.label :private %>
         <%= f.check_box :private %>
-      </div>
-      <div class="">
-        <%= f.submit :class => 'form-button' %>
-      </div>
+        <%= f.submit class: "btn btn-primary" %>
     <% end %>
 
-  </div>
 
-</div>

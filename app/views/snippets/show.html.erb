@@ -3,9 +3,9 @@
 <h1><%= @snippet.title %></h1>
 <div class="code-container">
   <% if @snippet.kind.title.downcase == "markdown" %>
-    <code><%= markdown("#{@snippet.work}") %></code>
+    <%= markdown(@snippet.work) %>
   <% else %>
-    <code><%= markdown("~~~#{@snippet.kind.title.downcase}\n#{@snippet.work}\n~~~") %></code>
+    <%= markdown(@snippet.code_fence) %>
   <% end %>
 </div>
 <p class="author-link">
