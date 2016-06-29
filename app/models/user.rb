@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
   has_many :favourites, dependent: :destroy
   has_many :favourite_snippets, through: :favourites, source: :snippet
   has_one :profile, dependent: :destroy
+  has_many :conversations
+  has_many :messages
   after_create  :make_profile
 
   validates :first_name, presence: true

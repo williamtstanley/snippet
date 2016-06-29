@@ -1,0 +1,8 @@
+<h1>Your Conversations</h1>
+
+<% @conversations.each do |convo| %>
+  Sender: <%= convo.sender_name %> <br>
+  Recipient: <%= convo.recipient_name %>
+  <%= link_to "View Conversation", user_conversation_messages_path(current_user, convo) %>
+  <hr>
+<% end %>

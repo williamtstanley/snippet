@@ -2,11 +2,13 @@
 
 <h1><%= @user.full_name %></h1>
 <div class="">
-  <%= image_tag @user.gravatar_url, class: "profile-image" %>  
+  <%= image_tag @user.gravatar_url, class: "profile-image" %>
 </div>
 <%= link_to "Gravatar", "https://en.gravatar.com/", target: :blank %>
 <h3>About</h3>
 <p><%= @user.profile.about %></p>
+
+<%= link_to "Message", new_conversation_path(to: @user.id) %>
 
 <h3>Social Media</h3>
 Twitter: <%= link_to @user.profile.twitter,
@@ -21,6 +23,7 @@ Linkedin: <%= link_to @user.full_name, "#{@user.profile.linkedin}", target: :bla
 
 <% if can? :manage, Profile %>
   <%= link_to "Edit", edit_user_profile_path(@user, @user.profile) %>
+  <%= link_to "Your messages", user_conversations_path(@user) %>
 <% end %>
 
 </div>
