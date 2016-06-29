@@ -2,14 +2,17 @@
 <%= paginate @snippets %>
 <% @snippets.each do |snippet| %>
   <% if (can? :manage, snippet) || (!snippet.private?) %>
-      <%= link_to snippet.title, snippet_path(snippet) %>
-      <% if snippet.kind.title.downcase == "markdown" %>
-        <%= markdown("#{snippet.work}") %>
-      <% else %>
-        <%= markdown(("~~~#{snippet.kind.title.downcase}\n#{snippet.work}\n~~~").truncate(350)) %>
-      <% end %>
+    <a href="<%= snippet_path(snippet) %>" class="snippet-link overlay">
+      <%= snippet.title %>
+      <div class="darken">
+        <% if snippet.kind.title.downcase == "markdown" %>
+          <%= markdown("#{snippet.work}") %>
+        <% else %>
+          <%= markdown(("~~~#{snippet.kind.title.downcase}\n#{snippet.work}\n~~~").truncate(350)) %>
+        <% end %>
+      </div>
       <hr>
+    </a>
   <% end %>
 <% end %>
 <%= paginate @snippets %>
-
