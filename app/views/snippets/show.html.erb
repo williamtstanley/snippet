@@ -24,10 +24,9 @@ Private: <%= @snippet.private %>
 <% end %>
 
 <h3>Leave a Comment</h3>
-<%= form_for [@snippet, @comment] do |f| %>
-  <%= f.label :body %>
+<%= bootstrap_form_for [@snippet, @comment] do |f| %>
   <%= f.text_area :body %>
-  <%= f.submit %>
+  <%= f.submit class: "btn btn-primary" %>
 <% end %>
 
 <h3>Comments</h3>

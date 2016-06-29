@@ -2,11 +2,15 @@
 
 <h1><%= @user.full_name %></h1>
 <div class="">
-  <%= image_tag @user.gravatar_url, class: "profile-image" %>  
+  <%= gravatar_for(@user) %>
 </div>
 <%= link_to "Gravatar", "https://en.gravatar.com/", target: :blank %>
 <h3>About</h3>
 <p><%= @user.profile.about %></p>
+<section class="stats">
+  <%= render 'shared/stats' %>
+  <%= render 'follow_form' if user_signed_in? %>
+</section>
 
 <h3>Social Media</h3>
 Twitter: <%= link_to @user.profile.twitter,

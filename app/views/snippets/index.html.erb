@@ -6,9 +6,9 @@
       <%= snippet.title %>
       <div class="darken">
         <% if snippet.kind.title.downcase == "markdown" %>
-          <%= markdown("#{snippet.work}") %>
+          <%= markdown(snippet.work) %>
         <% else %>
-          <%= markdown(("~~~#{snippet.kind.title.downcase}\n#{snippet.work}\n~~~").truncate(350)) %>
+          <%= markdown((snippet.code_fence).truncate(350)) %>
         <% end %>
       </div>
       <hr>
