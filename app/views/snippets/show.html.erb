@@ -13,7 +13,7 @@
 </p>
 Kind: <%= @snippet.kind.title %>
 Private: <%= @snippet.private %>
-<% if can? :manage, Snippet %>
+<% if can? :manage, @snippet %>
   <%= link_to "Edit", edit_snippet_path(@snippet) %>
   <%= link_to "Delete", snippet_path(@snippet), method: :delete, data:{confirm: "Are you sure?"} %>
 <% end %>

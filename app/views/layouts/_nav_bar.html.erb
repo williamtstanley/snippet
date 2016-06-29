@@ -27,7 +27,8 @@
           <li><%= link_to "Sign Out", sessions_path, method: :delete %></li>
         <% else %>
           <li><%= link_to "Sign Up", new_user_path %></li>
-          <li><%= link_to "Sign In", new_session_path %></li>
+          <!-- <li><%#= link_to "Sign In", new_session_path %></li> -->
+          <li><a href="#{new_session_path}", data-toggle="modal" data-target="#myModal">Sign In</a></li>
         <% end %>
       </ul>
     </div>

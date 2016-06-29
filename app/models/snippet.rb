@@ -1,8 +1,11 @@
 class Snippet < ActiveRecord::Base
   belongs_to :user
+  
   belongs_to :kind
+
   has_many :favourites, dependent: :destroy
   has_many :users, through: :favourites
+
   has_many :comments, dependent: :destroy
 
   validates :title, presence: true, uniqueness: true
