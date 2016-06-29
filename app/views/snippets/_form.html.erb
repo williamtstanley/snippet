@@ -1,7 +1,7 @@
 
     <h1>New Snippet</h1>
     <%= bootstrap_form_for @snippet do |f| %>
-        <%= f.collection_select :kind_id, Kind.all, :id, :title, {selected: @snippet.kind_id ||= Kind.find_by_id(14).id} %>
+        <%= f.collection_select :kind_id, Kind.all, :id, :title, {selected: @snippet.kind_id ||= Kind.find_by_title("Markdown").id} %>
         <%= f.text_field :title %>
         <div class="form-link"><%= link_to "Need Markdown?", "http://daringfireball.net/projects/markdown/basics", {target: "blank"} %></div>
         <%= f.text_area :work %>
