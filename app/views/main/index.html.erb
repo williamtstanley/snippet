@@ -1,10 +1,43 @@
-<h1>Welcome to Code Snippets!</h1>
-<div class="snippets-list">
-  <ul>
-    <% @kinds.each do |kind| %>
-    <li><%= link_to "#{kind.title} (#{kind.snippets.count} Snippets)", snippets_path(lan: kind.id) %></li>
+<div class="row">
+  <div class="col-md-3"></div>
+  <div class="col-md-6 text-center">
+    <% if user_signed_in? %>
+      <h2>Snippet Feed</h2>
+    <% else %>
+      <h2>Welcome to code snippets!</h2>
     <% end %>
-  </ul>
-  
+  </div>
+  <div class="col-md-3"></div>
+
+</div>
+<div class="row">
+
+  <div class="col-md-3"></div>
+  <div class="feed col-md-6">
+    <% if user_signed_in? %>
+      <% @feed.each do |snippet| %>
+        <a href="<%= snippet_path(snippet) %>" class="snippet-link overlay">
+        <%= snippet.title %>
+        <div class="darken">
+          <% if snippet.kind.title.downcase == "markdown" %>
+            <%= markdown(snippet.work) %>
+          <% else %>
+            <%= markdown((snippet.code_fence).truncate(350)) %>
+          <% end %>
+        </div>
+        </a>
+        <hr>
+
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="snippets-list col-md-3">
+    <ul>
+      <% @kinds.each do |kind| %>
+      <li><%= link_to "#{kind.title} (#{kind.snippets.count} Snippets)", snippets_path(lan: kind.id) %></li>
+      <% end %>
+    </ul>
+  </div>
 
 </div>

@@ -20,11 +20,16 @@ Rails.application.routes.draw do
       resources :messages, only: [:index]
     end
     resources :profiles, only: [:edit, :update]
+    member do
+      get :following, :followers
+    end
   end
   resources :password_resets, only: [:new, :create, :edit, :update]
   #USER CONTROL
   resources :sessions, only: [:new, :create] do
       delete :destroy, on: :collection
   end
+
+  resources :relationships, only: [:create, :destroy]
 
 end

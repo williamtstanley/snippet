@@ -27,4 +27,12 @@ module ApplicationHelper
       Redcarpet::Markdown.new(renderer, extensions).render(text).html_safe
     end
 
+    def gravatar_for(user, size = nil)
+      if size
+        image_tag user.gravatar_url(size: size), class: "profile-image"
+      else
+        image_tag user.gravatar_url, class: "profile-image"
+      end
+    end
+
 end

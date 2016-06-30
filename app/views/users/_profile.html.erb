@@ -2,11 +2,17 @@
 
 <h1><%= @user.full_name %></h1>
 <div class="">
-  <%= image_tag @user.gravatar_url, class: "profile-image" %>
+
+  <%= gravatar_for(@user) %>
+
 </div>
 <%= link_to "Gravatar", "https://en.gravatar.com/", target: :blank %>
 <h3>About</h3>
 <p><%= @user.profile.about %></p>
+<section class="stats">
+  <%= render 'shared/stats' %>
+  <%= render 'follow_form' if user_signed_in? %>
+</section>
 
 <%= link_to "Message", new_conversation_path(to: @user.id) %>
 
@@ -21,7 +27,7 @@ Github: <%= link_to @user.profile.github,
 
 Linkedin: <%= link_to @user.full_name, "#{@user.profile.linkedin}", target: :blank %><br>
 
-<% if can? :manage, Profile %>
+<% if (can? :manage, Profile) && (@user == current_user)%>
   <%= link_to "Edit", edit_user_profile_path(@user, @user.profile) %>
   <%= link_to "Your messages", user_conversations_path(@user) %>
 <% end %>
