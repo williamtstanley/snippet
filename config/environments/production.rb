@@ -9,6 +9,9 @@ Rails.application.configure do
   :authentication => :plain,
   :enable_starttls_auto => true
   }
+
+  Rails.application.routes.default_url_options[:host] = 'https://nippets.herokuapp.com/'
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
