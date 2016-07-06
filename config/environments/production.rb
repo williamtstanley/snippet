@@ -1,16 +1,15 @@
 Rails.application.configure do
 
   ActionMailer::Base.smtp_settings = {
-  :user_name => 'ponytester123@gmail.com',
-  :password => ENV['PONY_PASSWORD'],
-  :domain => 'gmail.com',
-  :address => 'smtp.gmail.com',
-  :port => 587,
-  :authentication => :plain,
-  :enable_starttls_auto => true
-  }
+ :user_name => ENV['SENDGRID_USERNAME'],
+ :password => ENV['SENDGRID_PASSWORD'],
+ :domain => 'https://nippets.herokuapp.com/',
+ :address => 'smtp.sendgrid.net',
+ :port => 587,
+ :authentication => :plain,
+ :enable_starttls_auto => true
+}
 
-  Rails.application.routes.default_url_options[:host] = 'https://nippets.herokuapp.com/'
 
   # Settings specified here will take precedence over those in config/application.rb.
 
