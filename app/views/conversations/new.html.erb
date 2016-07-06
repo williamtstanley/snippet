@@ -1,7 +1,8 @@
 <h1>Start a conversation</h1>
 
 <%= bootstrap_form_tag url: conversations_path do |f| %>
-  <%= f.text_field :to %>
+  To: <%= @recipient.full_name %>
+  <%= f.text_field to: @recipient.id %>
   <%= f.text_area :body %>
   <%= f.submit class: "btn btn-primary" %>
 <% end %>
